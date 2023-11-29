@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registry</title>
+  <link rel="stylesheet" href="****************************add css file here*****">
+</head>
+
+<body>
+  <header class="*******Add Class***********">
+    <h1>
+      My Blog
+    </h1>
+      <nav>
+      {{#if logged_in}}
+      <button class="btn" id="logout">logout</button>
+      {{else}}
+      <a href="/login"><button class="btn" id="login">login</button></a>
+      {{/if}}
+      </nav>
+
+  </header>
+  <main class="************add classes***********">
+    {{{ body }}}
+  </main>
+  <footer>
+      
+  </footer>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
