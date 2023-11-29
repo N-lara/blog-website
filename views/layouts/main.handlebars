@@ -4,29 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
-  <link rel="stylesheet" href="****************************add css file here*****">
+  <title>My Bolgposts</title>
+  {{!-- <link rel="stylesheet" href="****************************add css file here*****"> --}}
 </head>
 
 <body>
-  <header class="*******Add Class***********">
+  <header class="class-here">
     <h1>
-      My Blog
+      Blog
     </h1>
       <nav>
-      {{#if logged_in}}
-      <button class="btn" id="logout">logout</button>
-      {{else}}
-      <a href="/login"><button class="btn" id="login">login</button></a>
-      {{/if}}
+        <a href="/">Home</a>
+        <a href="/dashboard">dashboard</a>
+        {{#if logged_in}}
+        <a id="logout">logout</a>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
       </nav>
 
   </header>
-  <main class="************add classes***********">
+  <main class="class-here">
     {{{ body }}}
   </main>
   <footer>
-      
+    <p>made with love by Noah</p>
   </footer>
 
   {{#if logged_in}}
