@@ -3,7 +3,7 @@ const { Comment } = require('../models');
 const commentData =[
     {
       "post_id": 1,
-      "author": "admin@admin.com",
+      "author": 1,
       "content": "this is the first seeded comment"
     }
 ]

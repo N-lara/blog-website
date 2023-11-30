@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-//checks if password matches hashed password after hashing
 class Post extends Model {}
 
 Post.init(
@@ -21,11 +20,11 @@ Post.init(
       allowNull: false,
     },
     author: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'User',
-          key: 'email',
+          model: 'user',
+          key: 'id',
         },
       },
   },
@@ -36,7 +35,7 @@ Post.init(
     updatedAt:false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'post',
   }
 );
 

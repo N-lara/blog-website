@@ -15,7 +15,7 @@ Comment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Post',
+        model: 'post',
         key: 'id',
       },
     },
@@ -24,11 +24,11 @@ Comment.init(
       allowNull: false,
     },
     author: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'User',
-          key: 'email',
+          model: 'user',
+          key: 'id',
         },
       },
   },
@@ -39,7 +39,7 @@ Comment.init(
     updatedAt:false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'comment',
   }
 );
 

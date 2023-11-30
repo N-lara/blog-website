@@ -2,8 +2,8 @@ const { Post } = require('../models');
 
 const postData =[
     {
-      "Title": "admin Post",
-      "author": "admin@admin.com",
+      "title": "admin Post",
+      "author": 1,
       "content": "this is the first seeded post"
     }
 ]

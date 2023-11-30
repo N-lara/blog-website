@@ -1,21 +1,19 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User , Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 //commented out was relevant to activity but ot to this challenge
 //TODO change out code with relevant code
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-  //   const userData = await User.findAll({
-  //     attributes: { exclude: ['password'] },
-  //     order: [['name', 'ASC']],
-  //   });
-
-  //   const users = userData.map((project) => project.get({ plain: true }));
+    console.log('/ get request to /api/posts/');
+    const postData = await Post.findAll({
+      include: [{ model: User }],
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', {
-      // users,
-      // logged_in: req.session.logged_in,
+      posts,
     });
   } catch (err) {
     res.status(500).json(err);
