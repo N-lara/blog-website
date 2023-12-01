@@ -1,10 +1,10 @@
 <div class="list-div">
   {{#each posts as |post|}}
-  <div class="TODO">
-    <div class="TODO">
+  <div class="post">
+    <div class="card-header">
       <h2 class="post" data-id="{{post.id}}"> {{post.title}}</h2> <span>posted by {{post.user.name}} on {{post.createdAt}}</span>
     </div>
-    <div class="TODO">
+    <div class="card-content">
       <p>{{post.content}}</p>
     </div>
   </div>

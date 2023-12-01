@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
-      console.log('/dashboard get request to /api/posts/');
+      console.log('get request to dashboard/');
       const postData = await Post.findAll({
         include: [{ model: User }],
         where: {author: req.session.user_id}
@@ -23,20 +23,40 @@ router.get('/:id', withAuth, async (req, res) => {
     try {
       const id = req.params.id;
       console.log(id)
-      console.log(`/dashboard/${id} get request to /api/posts/`);
-      const postData = await Post.findAll({
-        include: [{ model: User, Comment }],
-        where:{id: req.params.id}
+      //gets post
+      console.log(`get request to dashboard/${id}`);
+      const postData = await Post.findOne({
+        include: [{ model: User }],
+        where:{id: id}
       });
-      // console.log(postData);
-      const post = postData.map((post) => post.get({ plain: true }));
-      console.log(post);
+      const post = postData.get({ plain: true });
+
+      //gets comments
+      commentData = await Comment.findAll({
+        include: [{ model: User }],
+        where:{post_id:id},
+      });
+      const comments = commentData.map((comment) => comment.get({ plain: true }));
+      //render page
       res.render('dashboard-post', {
-         post,
-      });
+        post,
+        comments,
+     });
     } catch (err) {
       res.status(500).json(err);
     }
+});
+
+router.put('/:id', async (req, res) => {
+  try{
+    console.log(`put request to /dashboard/${req.params.id}`);
+    Post.update(req.body, {
+      where: { id: req.params.id, },
+    })
+    res.status(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
