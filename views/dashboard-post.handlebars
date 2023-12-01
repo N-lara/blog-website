@@ -6,7 +6,7 @@
         <textarea id="post-content" name="post-content" rows="10" cols="70">{{post.content}}</textarea>
     </div>
 </div>
-<div></div>
+
     <h3 class="comments-div">Comments</h3>
     {{#each comments as |comment|}}
         <div class="comment">
@@ -16,4 +16,6 @@
     {{/each}}
 <button id="delete-btn" data-id="{{post.id}}">delete post</button>
 <button id="edit-btn" data-id="{{post.id}}">save changes</button>
+<br/>
+<button onclick="location.href='/dashboard/new-post';"  id="add-post">Create New Post</button>
 <script src="/js/dashboard-post.js"></script>

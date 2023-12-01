@@ -47,7 +47,7 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try{
     console.log(`put request to /dashboard/${req.params.id}`);
     Post.update(req.body, {
@@ -58,5 +58,25 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.delete('/:id', withAuth, async(req,res)=>{
+  try{
+    id = req.body.id;
+    console.log(`put request to /dashboard/${id}`);
+    Post.destroy({ where: { id: id, }, })
+    .then(async() => { Comment.destroy({ where: { post_id: id, }, })})
+    .then(res.redirect('/dashboard'))
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.post('/id', withAuth, async(req,res)=>{
+  try{
+    
+  }catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;

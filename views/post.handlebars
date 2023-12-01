@@ -1,0 +1,24 @@
+<div class="TODO">
+    <div>
+      <h2 data-id="{{post.id}}"> {{post.title}}</h2> <span>posted by {{post.user.name}} on {{post.createdAt}}</span>
+    </div>
+    <div class="TODO">
+      <p>{{post.content}}</p>
+    </div>
+</div>
+<div>
+    <h3 class="comments-div">Comments</h3>
+    {{#each comments as |comment|}}
+        <div class="comment">
+            <p class="comment-content" data-id="{{comment.id}}"> {{comment.content}}</p>
+            <p class="comment-attributes">--posted by {{comment.user.name}} on {{comment.createdAt}}</p>
+        </div>
+    {{/each}}
+</div>
+<div>
+    <textarea id="comment-input"  cols="30" rows="10" placeholder="Add a comment"></textarea>
+    <br/>
+    <button id="new-comment" data-id="{{post.id}}" data-author="{{post.author}}">Add Comment</button>
+</div>
+
+<script src="/js/comment.js"></script>
