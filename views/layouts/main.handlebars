@@ -14,13 +14,10 @@
       Blog
     </h1>
       <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">dashboard</a>
-        {{#if logged_in}}
-        <a id="logout">logout</a>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+        <a href="/">Home</a>   
+        <a href="/dashboard">dashboard</a>   
+        <a href="/login">login</a>   
+           <a id="logout">logout</a>   
       </nav>
 
   </header>
@@ -31,9 +28,7 @@
     <p>made with love by Noah</p>
   </footer>
 
-  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 
 </html>

@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { User , Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-//commented out was relevant to activity but ot to this challenge
-//TODO change out code with relevant code
 router.get('/', async (req, res) => {
   try {
     console.log('/ get request to /api/posts/');
@@ -28,5 +26,16 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
+router.get('/sign-up', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('sign-up');
+});
+
 
 module.exports = router;

@@ -1,0 +1,13 @@
+<div class="list-div">
+  {{#each posts as |post|}}
+  <div class="TODO">
+    <div class="TODO">
+      <h2 class="post" data-id="{{post.id}}"> {{post.title}}</h2> <span>posted by {{post.user.name}} on {{post.createdAt}}</span>
+    </div>
+    <div class="TODO">
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  {{/each}}
+</div>
+<script src="/js/dashboard.js"></script>
