@@ -18,7 +18,6 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-
 router.get('/:id', withAuth, async (req, res) => {
     try {
       const id = req.params.id;
@@ -71,12 +70,5 @@ router.delete('/:id', withAuth, async(req,res)=>{
   }
 })
 
-router.post('/id', withAuth, async(req,res)=>{
-  try{
-    
-  }catch (err) {
-    res.status(500).json(err);
-  }
-})
 
 module.exports = router;

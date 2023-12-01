@@ -6,4 +6,9 @@ const selectPost = async(event)=>{
 
 };
 
+const changePage = ()=>{
+        window.location.href = `/dashboard/new-post`;
+};
+
 document.querySelector('.list-div').addEventListener('click', selectPost);
+document.querySelector('#add-post').addEventListener('click', changePage);
