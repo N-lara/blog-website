@@ -77,4 +77,35 @@ router.post('/post/add-comment/:id', withAuth, async(req,res)=>{
   }
 })
 
+router.get('/posting/:author', withAuth, async(req,res)=>{
+  try {
+    console.log(`get request to posting/${req.params.author}`);
+    const userData = await User.findOne({where:{id:req.params.author}});
+    const user = userData.get({ plain: true });
+    console.log(user);
+     res.render('create-post', {
+      user,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.post(`/post/add-post/:author`, withAuth, async(req,res)=>{
+  try {
+    console.log(`post request to /post/add-post/${req.params.author}`)
+    const postData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      author: req.body.author,
+    });
+
+    res.status(200).redirect('/dashboard');
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+
 module.exports = router;

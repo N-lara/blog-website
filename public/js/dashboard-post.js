@@ -12,7 +12,7 @@ const editPost = async(event)=>{
 
 const deletePost = async(event)=>{
     const id = event.target.getAttribute("data-id");
-    if(id && content){
+    if(id){
         const response = await fetch(`/dashboard/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({ id:id, }),
