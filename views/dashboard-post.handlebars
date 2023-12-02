@@ -3,15 +3,15 @@
         <h2 class="post" data-id="{{post.id}}"> {{post.title}}</h2> <span>posted by {{post.user.name}} on {{post.createdAt}}</span>
     </div>
     <div class="card-content">
-        <textarea id="post-content" name="post-content" rows="10" cols="70">{{post.content}}</textarea>
+        <textarea id="post-content" rows="10" cols="70">{{post.content}}</textarea>
     </div>
 </div>
 <br/>
 <button id="delete-btn" data-id="{{post.id}}">delete post</button>
 <button id="edit-btn" data-id="{{post.id}}">save changes</button>
 <br/>
-
-<h3 class="comments-div">Comments</h3>
+<div class="comments-div">
+<h3 class="comments-div-header">Comments</h3>
 {{#each comments as |comment|}}
     <div class="comment">
         <p class="comment-content" data-id="{{comment.id}}"> {{comment.content}}</p>
