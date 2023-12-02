@@ -6,17 +6,20 @@
         <textarea id="post-content" rows="10" cols="70">{{post.content}}</textarea>
     </div>
 </div>
-<br/>
-<button id="delete-btn" data-id="{{post.id}}">delete post</button>
-<button id="edit-btn" data-id="{{post.id}}">save changes</button>
-<br/>
-<div class="comments-div">
-<h3 class="comments-div-header">Comments</h3>
+
+<div class="center">
+    <button id="delete-btn" data-id="{{post.id}}">delete post</button>
+    <button id="edit-btn" data-id="{{post.id}}">save changes</button>
+</div>
+
+<div class="card comments-div">
+<h3>Comments</h3>
 {{#each comments as |comment|}}
-    <div class="comment">
+    <div class="card comment">
         <p class="comment-content" data-id="{{comment.id}}"> {{comment.content}}</p>
-        <p class="comment-attributes">--posted by {{comment.user.name}} on {{comment.createdAt}}</p>
+        <p class="card-foot">--posted by {{comment.user.name}} on {{comment.createdAt}}</p>
     </div>
 {{/each}}
+</div>
 
 <script src="/js/dashboard-post.js"></script>

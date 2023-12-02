@@ -2,11 +2,12 @@
   {{#each posts as |post|}}
   <div class="card">
     <div class="card-header" data-id="{{post.id}}">
-      <h2 class="post" data-id="{{post.id}}"> {{post.title}}</h2> <span>posted by {{post.user.name}} on {{post.createdAt}}</span>
+      <h2 class="post" data-id="{{post.id}}"> {{post.title}}</h2>
     </div>
     <div class="card-content">
       <p>{{post.content}}</p>
     </div>
+    <p class="card-foot">posted by {{post.user.name}} on {{post.createdAt}}</p>
   </div>
   {{/each}}
 </div>

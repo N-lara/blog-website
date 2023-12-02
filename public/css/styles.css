@@ -1,109 +1,86 @@
 /* main */
 .main-header{
-
+    background-color: aquamarine;
+    
 }
 .nav{
-
+    background-color: rgba(29, 29, 174, 0.381);
+    padding: 4px;
+    
+}
+h1, h2, h3{
+    text-align: center;
 }
 main{
-
+    background-color: bisque;
+    border-style: groove;
+    border-width: 1px;
+    padding: 7px;
 }
-foot{
-
+footer{
+    background-color: rgb(236, 174, 212); 
+    border-style:groove;
+    border-width: 1px;
+    text-align: center;
 }
 /*create-post*/
-.post-form{
-
-}
-.input-title{
-
-}
 #title{
-
-}
-.input-content{
-
+    margin: 3px;
+    width: 98%;
 }
 #input-text{
-
+    margin: 3px;
+    width: 99%;
 }
-#post-btn{
 
-}
 /*dashboard-post*/
 .card{
-
+    border-style: solid;
+    border-width: 1px;
+    margin: 3%;
+    background-color: antiquewhite;
 }
 .card-header{
-
-}
-.post{
-
+    background-color: rgba(149, 37, 37, 0.361);
+    text-align: center;
+    border-style: inset;
 }
 .card-content{
-
+    padding-left: 3%;
+    padding-right: 3%;    
 }
-#post-content{
-
+.card-foot{
+    font-size: x-small;
+    text-align: end;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background-color: rgba(128, 128, 128, 0.365);
 }
-#delete-btn{
-
-}
-#edit-btn{
-
+.center{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .comments-div{
-
+    background-color: rgba(52, 79, 11, 0.217);
 }
-.comments-div-header{
 
-}
-.comment{
-
-}
 .comment-content{
-
+    padding-left: 3%;
+    padding-right: 3%;
 }
-.comment-attributes{
 
-}
-/*dashboard*/
-.list-div{
-
-}
-#add-post/*btn*/{
-
-}
 /*login*/
-#name-login{
+input{margin-left: 1%;}
 
-}
-#password.login{
-
-}
-.login-btn{
-
-}
-/*sign-up*/
-.signup-form{
-
-}
-#name-signup{
-
-}
-#email-signup{
-
-}
-#password-signup{
-
-}
 /*post*/
-.new-comment{
-
-}
-.comment-input{
-
+#comment-input{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1%;
 }
 #new-comment/*btn*/{
-
+    margin-bottom: 1%;
 }
