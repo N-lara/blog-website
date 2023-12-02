@@ -19,9 +19,10 @@ This project it running on heroku you only need to go to https://desolate-hollow
 
 this program is designed to be used to interact with other people you view posts, and if you feel inclined to do so so you can use all the features of this web app you can make an account so you can make posts and also comment on posts, you can also use your dashboard to interact with posts you have prevously made to edit or delete them. 
 
-heroku deployment: https://desolate-hollows-52185-78d44b985b86.herokuapp.com/
-github repo: https://github.com/N-lara/blog-website
-![screenshot of website](assets/images/screenshot.png)
+heroku deployment: https://desolate-hollows-52185-78d44b985b86.herokuapp.com/    
+github repo: https://github.com/N-lara/blog-website    
+![screenshot of website](./public/assets/home.png)      
+![screenshot of website](./public/assets/post.png)
 
 ## Credits
 
