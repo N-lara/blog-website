@@ -47,7 +47,7 @@ footer{
 }
 .card-content{
     padding-left: 3%;
-    padding-right: 3%;    
+    padding-right: 3%; 
 }
 .card-foot{
     font-size: x-small;
@@ -83,4 +83,10 @@ input{margin-left: 1%;}
 }
 #new-comment/*btn*/{
     margin-bottom: 1%;
+}
+
+#post-content{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
