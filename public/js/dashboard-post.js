@@ -7,17 +7,24 @@ const editPost = async(event)=>{
         body: JSON.stringify({ id:id, content:content }),
         headers: { 'Content-Type': 'application/json' },
         });
+        if(response.ok){
+            document.location.replace('/dashboard');
+        }
     }
 };
 
 const deletePost = async(event)=>{
     const id = event.target.getAttribute("data-id");
+    console.log(id);
     if(id){
         const response = await fetch(`/dashboard/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({ id:id, }),
         headers: { 'Content-Type': 'application/json' },
         });
+        if(response.ok){
+            document.location.replace('/dashboard');
+        }
     }
 };
 

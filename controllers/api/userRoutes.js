@@ -47,7 +47,7 @@ router.post('/logout', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log('/sign-up post request to /api/users')
+    console.log('sign-up post request to /api/users')
     console.log(req.body)
     const dbUserData = await User.create({
       name: req.body.name,
@@ -55,11 +55,7 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(dbUserData);
-    });
+    res.status(200).json(dbUserData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -67,10 +67,10 @@ router.post('/post/add-comment/:id', withAuth, async(req,res)=>{
     const commentData = await Comment.create({
       post_id: req.body.post_id,
       content: req.body.content,
-      author: req.body.author,
+      author: req.session.user_id,
     });
 
-    res.status(200).redirect(`/post/${req.params.id}`);
+    res.status(200).json(commentData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -80,27 +80,26 @@ router.post('/post/add-comment/:id', withAuth, async(req,res)=>{
 router.get('/posting/:author', withAuth, async(req,res)=>{
   try {
     console.log(`get request to posting/${req.params.author}`);
-    const userData = await User.findOne({where:{id:req.params.author}});
+    const userData = await User.findOne({where:{id:req.session.user_id}});
     const user = userData.get({ plain: true });
     console.log(user);
-     res.render('create-post', {
-      user,
+    res.status(200).render('create-post', {
+    user,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 })
 
-router.post(`/post/add-post/:author`, withAuth, async(req,res)=>{
+router.post(`/post/add-post/`, withAuth, async(req,res)=>{
   try {
     console.log(`post request to /post/add-post/${req.params.author}`)
     const postData = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      author: req.body.author,
+      author: req.session.user_id,
     });
-
-    res.status(200).redirect('/dashboard');
+    res.status(200).json(postData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

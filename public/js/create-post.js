@@ -1,15 +1,18 @@
 const addPost = async(event)=>{
     event.preventDefault();
-    const id = event.target.getAttribute("data-author");
     const content = document.querySelector("#input-text").value;
     const title = document.querySelector("#title").value;
-    console.log(id, title, content)
-    if(id && content && title){
-        const response = await fetch(`/post/add-post/${id}`, {
+    console.log(title, content)
+    if(content && title){
+        console.log('hi')
+        const response = await fetch(`/post/add-post/`, {
         method: 'POST',
-        body: JSON.stringify({ author:id, content:content, title:title }),
+        body: JSON.stringify({ content:content, title:title }),
         headers: { 'Content-Type': 'application/json' },
         });
+        if(response.ok){
+            document.location.replace('/dashboard');
+        }
     }
 }
 document.querySelector('#post-btn').addEventListener('click', addPost);

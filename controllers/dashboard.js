@@ -7,11 +7,13 @@ router.get('/', withAuth, async (req, res) => {
       console.log('get request to dashboard/');
       const postData = await Post.findAll({
         include: [{ model: User }],
-        where: {author: req.session.user_id}
+        where: {author: req.session.user_id},
       });
+      const id = req.session.user_id;
       const posts = postData.map((post) => post.get({ plain: true }));
       res.render('dashboard', {
         posts,
+        id
       });
     } catch (err) {
       res.status(500).json(err);
@@ -37,7 +39,7 @@ router.get('/:id', withAuth, async (req, res) => {
       });
       const comments = commentData.map((comment) => comment.get({ plain: true }));
       //render page
-      res.render('dashboard-post', {
+      res.status(200).render('dashboard-post', {
         post,
         comments,
      });
@@ -49,10 +51,10 @@ router.get('/:id', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
   try{
     console.log(`put request to /dashboard/${req.params.id}`);
-    Post.update(req.body, {
+    const postData = Post.update(req.body, {
       where: { id: req.params.id, },
     })
-    res.status(200);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -62,9 +64,9 @@ router.delete('/:id', withAuth, async(req,res)=>{
   try{
     id = req.body.id;
     console.log(`put request to /dashboard/${id}`);
-    Post.destroy({ where: { id: id, }, })
+    const postData = Post.destroy({ where: { id: id, }, })
     .then(async() => { Comment.destroy({ where: { post_id: id, }, })})
-    .then(res.redirect('/dashboard'))
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
